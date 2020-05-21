@@ -1,7 +1,10 @@
 #include <stdio.h>
 #include "defs.h"
+#include "init.c"
 
 int main() {
-    printf("Hello, World!\n");
+
+    AllInit();
+
     return 0;
 }
