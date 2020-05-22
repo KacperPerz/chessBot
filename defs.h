@@ -32,11 +32,11 @@ enum {
     A1 = 21, B1, C1, D1, E1, F1, G1, H1,
     A2 = 31, B2, C2, D2, E2, F2, G2, H2,
     A3 = 41, B3, C3, D3, E3, F3, G3, H3,
-    A4 = 41, B4, C4, D4, E4, F4, G4, H4,
-    A5 = 41, B5, C5, D5, E5, F5, G5, H5,
-    A6 = 41, B6, C6, D6, E6, F6, G6, H6,
-    A7 = 41, B7, C7, D7, E7, F7, G7, H7,
-    A8 = 41, B8, C8, D8, E8, F8, G8, H8, NO_SQ
+    A4 = 51, B4, C4, D4, E4, F4, G4, H4,
+    A5 = 61, B5, C5, D5, E5, F5, G5, H5,
+    A6 = 71, B6, C6, D6, E6, F6, G6, H6,
+    A7 = 81, B7, C7, D7, E7, F7, G7, H7,
+    A8 = 91, B8, C8, D8, E8, F8, G8, H8, NO_SQ
 };
 
 enum {FALSE, TRUE};
@@ -85,6 +85,8 @@ typedef struct {
 
 #define FR2SQ(f,r) ( (21 + (f) ) + ( (r) * 10 ) )
 #define SQ64(sq120) Sq120ToSq64[sq120]
+#define POP(b) PopBit(b)
+#define CNT(b) CountBits(b)
 
 extern int Sq120ToSq64[BRD_SQ_NUM];
 extern int Sq64ToSq120[64];
@@ -94,6 +96,8 @@ extern void AllInit();
 
 //bitboards.c
 extern void PrintBitBoard(U64 bb);
+extern int PopBit(U64 *bb);
+extern int CountBits(U64 b);
 
 
 #endif

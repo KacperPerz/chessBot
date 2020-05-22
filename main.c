@@ -7,18 +7,20 @@ int main() {
 
     AllInit();
 
-    U64 playBitBoard = 0ULL;
-    printf("Start:\n");
-    PrintBitBoard(playBitBoard);
+    U64 playBitBoard = 0;
+
+    playBitBoard |= (1 << SQ64(D2));
+    playBitBoard |= (1 << SQ64(D3));
+    playBitBoard |= (1 << SQ64(D4));
+
+    int sq64 = 0;
+    while(playBitBoard) {
+        sq64 = POP(&playBitBoard);
+        printf("Popped: %d\n", sq64);
+        PrintBitBoard(playBitBoard);
+    }
 
 
-    playBitBoard |= (1ULL << SQ64(D2));
-    printf("D2 added: \n");
-    PrintBitBoard(playBitBoard);
-
-    playBitBoard |= (1ULL << SQ64(G2));
-    printf("D2 added: \n");
-    PrintBitBoard(playBitBoard);
 
     return 0;
 }
